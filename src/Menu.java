@@ -32,30 +32,34 @@ public class Menu {
                         System.out.println("➋ Digital.");
                         System.out.println("➌ Salir.");
                         int menu2 = sc.nextInt();
-
-                        if (menu2==1){
-                            VideoFunciones.add_videojuego_fisico();
-                        } else if (menu2==2){
-                            VideoFunciones.add_videojuego_digital();
-                        } else if (menu2 == 3) {
-                            System.out.println("Pos na'");
-                            salir2 = true;
-                        } else {
-                            System.out.println("Introduce un numero valido vaaaaa porfis.");
-                        }}
+                        sc.nextLine();
+                        switch (menu2){
+                            case 1:
+                                VideoFunciones.add_videojuego_fisico();
+                                break;
+                            case 2:
+                                VideoFunciones.add_videojuego_digital();
+                                break;
+                            case 3:
+                                System.out.println("Pos na'");
+                                salir2 = true;
+                            default:
+                                System.out.println("Introduce un numero valido vaaaaa porfis.");
+                        }
+                        }
 
                     break;
                 case 2:
                     VideoFunciones.mostrar_ranking();
                     break;
                 case 3:
-                    VideoFunciones.eliminar_videojuego_por_titulo();
-                    break;
-                case 4:
                     VideoFunciones.guardar_fichero_binario();
                     break;
-                case 5:
+                case 4:
                     VideoFunciones.cargar_fichero_binario();
+                    break;
+                case 5:
+                    VideoFunciones.eliminar_videojuego_por_titulo();
                     break;
                 case 6:
                     VideoFunciones.videojuegos_a_texto();

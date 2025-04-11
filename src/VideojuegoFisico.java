@@ -1,16 +1,16 @@
-public class VidejuegoFisico extends Videojuego{
+public class VideojuegoFisico extends Videojuego{
 
     String tiendaCompra;
     String estado;
 
 
-    public VidejuegoFisico(String plataforma, String titulo, int nota, String tiendaCompra, String estado) {
+    public VideojuegoFisico(String plataforma, String titulo, int nota, String tiendaCompra, String estado) {
         super(plataforma, titulo, nota);
         this.tiendaCompra = tiendaCompra;
         this.estado = estado;
     }
 
-    public VidejuegoFisico(String plataforma, String titulo, int nota) {
+    public VideojuegoFisico(String plataforma, String titulo, int nota) {
         super(plataforma, titulo, nota);
     }
 
@@ -37,12 +37,11 @@ public class VidejuegoFisico extends Videojuego{
 
     @Override
     public String toString() {
-        return "VidejuegoFisico{" +
-                "tiendaCompra='" + tiendaCompra + '\'' +
-                ", estado='" + estado + '\'' +
-                ", titulo='" + titulo + '\'' +
-                ", nota=" + nota +
-                ", plataforma='" + plataforma + '\'' +
-                '}';
+        return  " ▶Videjuego fisico" +
+                " ▷Tienda Compra: " + tiendaCompra + '\'' +
+                " ▷Estado:" + estado  +
+                " ▷Plataforma:" + plataforma + '\'' +
+                " ▷Titulo:" + titulo + '\'' +
+                " ▷Nota:" + nota;
     }
 }

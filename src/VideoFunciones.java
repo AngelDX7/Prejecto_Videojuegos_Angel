@@ -10,7 +10,7 @@ public class VideoFunciones {
     static Scanner sc = new Scanner(System.in);
 
     static List<Videojuego> ranking = new ArrayList<>();
-    static File fichero_videojuego = new File("viedeojuegos.dat");
+    static File fichero_videojuego = new File("videojuegos.dat");
     static File fichero_videojuego_texto = new File("videojuegos.txt");
 
 
@@ -65,23 +65,27 @@ public class VideoFunciones {
 
     public static void add_videojuego_fisico() {
 
-        System.out.println("En que plataforma esta el videojuego?");
-        String plataforma = sc.nextLine();
 
-        System.out.println("Cual es el titulo del videojuego?");
-        String titulo = sc.nextLine();
+            System.out.println("¿En qué plataforma está el videojuego?");
+            String plataforma = sc.nextLine();
 
-        System.out.println("Que nota le pondiras?");
-        int nota = sc.nextInt();
+            System.out.println("¿Cuál es el título del videojuego?");
+            String titulo = sc.nextLine();
 
-        System.out.println("En que tienda se vende?");
-        String tienda_online = sc.nextLine();
+            System.out.println("¿Qué nota le pondrías?");
+            int nota = sc.nextInt();
+            sc.nextLine(); // limpiar el buffer
 
-        System.out.println("Cuanto pesa tu juego?");
-        Double tamaño_juego = sc.nextDouble();
+            System.out.println("¿En qué tienda se compró?");
+            String tiendaCompra = sc.nextLine();
 
-        VidiojuegoDigital juego = new VidiojuegoDigital(plataforma, titulo, nota, tienda_online, tamaño_juego);
-        ranking.add(juego);
+            System.out.println("¿En qué estado está el juego (nuevo, usado, etc.)?");
+            String estado = sc.nextLine();
+
+            VideojuegoFisico juego = new VideojuegoFisico(plataforma, titulo, nota, tiendaCompra, estado);
+            ranking.add(juego);
+
+
     }
 
     public static void mostrar_ranking() {
@@ -91,7 +95,7 @@ public class VideoFunciones {
         } else {
 
             ranking.forEach((videojuego -> {
-                System.out.println("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁");
+                System.out.println("≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣");
                 System.out.println(contador + ". " + videojuego.toString());
             }));
 
@@ -100,14 +104,27 @@ public class VideoFunciones {
     }
 
     public static void eliminar_videojuego_por_titulo() {
-        System.out.println("▷▶Dime el nombre del juegito.");
-        String nombre_juego = sc.nextLine();
 
-        ranking.forEach(videojuego -> {
-            if (videojuego.getTitulo().equals(nombre_juego)) {
-                ranking.remove(videojuego);
+            System.out.println("▷▶Dime el nombre del juegito.");
+            String nombre_juego = sc.nextLine();
+
+            int indice_a_borrar = -1;
+
+            for (int i = 0; i < ranking.size(); i++) {
+                if (ranking.get(i).getTitulo().equalsIgnoreCase(nombre_juego)) {
+                    indice_a_borrar = i;
+                    break;
+                }
             }
-        });
+
+            if (indice_a_borrar != -1) {
+                ranking.remove(indice_a_borrar);
+                System.out.println("✓ Juego eliminado.");
+            } else {
+                System.out.println("⚠ No se encontró ningún juego con ese título.");
+            }
+
+
 
     }
 

@@ -32,12 +32,11 @@ public class VidiojuegoDigital extends Videojuego {
 
     @Override
     public String toString() {
-        return "VidiojuegoDigital{" +
-                "tiedaOnline='" + tiedaOnline + '\'' +
-                ", tamañoGB=" + tamañoGB +
-                ", plataforma='" + plataforma + '\'' +
-                ", titulo='" + titulo + '\'' +
-                ", nota=" + nota +
-                '}';
+        return  " ▶Videjuego digital║║" +
+                " ▷Tienda Online: " + tiedaOnline + '\'' +
+                " ▷Peso:" + tamañoGB + " GB" +
+                " ▷Plataforma:'" + plataforma + '\'' +
+                " ▷Titulo:'" + titulo + '\'' +
+                " ▷Nota:" + nota;
     }
 }
